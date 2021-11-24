@@ -1,5 +1,7 @@
 package com.thawbaan.javaalgorithms.katherinehodge.LinkedList;
 
+import java.util.HashSet;
+
 public class CustomLinkedList {
 
     public static void main(String[] args) {
@@ -81,5 +83,19 @@ class LinkedList {
         // first = b
         // second = d
         first.next = first.next.next;
+    }
+
+    public boolean hasCycle(){
+        HashSet<Node> nodes = new HashSet<>();
+        Node current = head;
+        while(current != null) {
+            if(nodes.contains(current)){
+                return true;
+            } else {
+                nodes.add(current);
+            }
+            current = current.next;
+        }
+        return false;
     }
 }
